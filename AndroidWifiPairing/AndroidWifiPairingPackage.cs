@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.Shell;
+﻿using AndroidMultipleDeviceLauncher.Services;
+using Microsoft.VisualStudio.Shell;
 using System;
 using System.Runtime.InteropServices;
 using System.Threading;
@@ -48,6 +49,9 @@ namespace AndroidWifiPairing
             // Do any initialization that requires the UI thread after switching to the UI thread.
             await this.JoinableTaskFactory.SwitchToMainThreadAsync(cancellationToken);
             await WifiPairingCommand.InitializeAsync(this);
+            await ConnectCommand.InitializeAsync(this);
+
+            Adb.AdbPath = @"C:\Program Files (x86)\Android\android-sdk\platform-tools\";
         }
 
         #endregion

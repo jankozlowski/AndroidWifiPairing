@@ -90,6 +90,12 @@ namespace AndroidWifiPairing
         /// <param name="e">Event args.</param>
         private void Execute(object sender, EventArgs e)
         {
+            WifiPairing wifiPairing = new WifiPairing();
+            wifiPairing.Show();
+        }
+
+        private void MDNSTest()
+        {
             var mdns = new MulticastService();
             var serviceDiscovery = new ServiceDiscovery(mdns);
 
